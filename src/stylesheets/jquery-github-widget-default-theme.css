@@ -1,0 +1,134 @@
+/*
+ * jQuery Github Widgets Default Theme
+ *  * 
+ * Copyright 2012, Utensil Song
+ * https://github.com/utensil
+ * 
+ * Released under the MIT licenses.
+ * 
+ * Written in SCSS(http://sass-lang.com/), you can use the following command to regenerate the corresponding CSS file if you have the ruby gem `sass` installed:
+ * 
+ * sass jquery-github-widget-default-theme.css.scss > jquery-github-widget-default-theme.css
+ * 
+ */
+.github-widget {
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px; }
+  .github-widget a, .github-widget a:hover, .github-widget a:active {
+    text-decoration: none;
+    outline: none; }
+  .github-widget ul {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px; }
+    .github-widget ul li {
+      list-style-type: none; }
+  .github-widget ul.github-widget-stat {
+    background: #fafafa;
+    background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#fafafa));
+    background: -moz-linear-gradient(top, #efefef, #fafafa);
+    border: 1px solid #dddddd;
+    border-radius: 20px 20px 0px 0px; }
+    .github-widget ul.github-widget-stat > li {
+      display: inline-block; }
+      .github-widget ul.github-widget-stat > li.github-widget-avatar {
+        margin: 10px 10px 10px 10px;
+        margin-left: 20px;
+        margin-top: 20px; }
+        .github-widget ul.github-widget-stat > li.github-widget-avatar img {
+          height: 60px;
+          width: 60px;
+          outline: none;
+          border: 0px;
+          border-radius: 5px; }
+          .github-widget ul.github-widget-stat > li.github-widget-avatar img:hover {
+            box-shadow: 1px 1px 1px #333333; }
+      .github-widget ul.github-widget-stat > li.github-widget-username {
+        font-size: 36px;
+        font-weight: bold;
+        vertical-align: 18px;
+        color: #495961;
+        text-shadow: 1px 1px 0 white;
+        margin-right: 30px; }
+      .github-widget ul.github-widget-stat > li.github-widget-repos-count, .github-widget ul.github-widget-stat > li.github-widget-followers-count {
+        margin: 10px 10px 10px 10px;
+        margin-top: 20px;
+        text-align: center;
+        line-height: 36px; }
+        .github-widget ul.github-widget-stat > li.github-widget-repos-count > a strong, .github-widget ul.github-widget-stat > li.github-widget-followers-count > a strong {
+          display: block;
+          font-size: 36px;
+          font-weight: bold;
+          color: black; }
+        .github-widget ul.github-widget-stat > li.github-widget-repos-count > a span, .github-widget ul.github-widget-stat > li.github-widget-followers-count > a span {
+          display: block;
+          font-size: 11px;
+          color: #999999; }
+        .github-widget ul.github-widget-stat > li.github-widget-repos-count > a:hover, .github-widget ul.github-widget-stat > li.github-widget-followers-count > a:hover {
+          text-decoration: none; }
+          .github-widget ul.github-widget-stat > li.github-widget-repos-count > a:hover strong, .github-widget ul.github-widget-stat > li.github-widget-followers-count > a:hover strong {
+            text-shadow: 1px 1px 1px #333333; }
+          .github-widget ul.github-widget-stat > li.github-widget-repos-count > a:hover span, .github-widget ul.github-widget-stat > li.github-widget-followers-count > a:hover span {
+            color: black; }
+    .github-widget ul.github-widget-stat > li {
+      *display: inline; }
+  .github-widget ul.github-widget-repos-list {
+    height: 300px;
+    overflow-y: scroll; }
+    .github-widget ul.github-widget-repos-list a {
+      color: #0088cc; }
+      .github-widget ul.github-widget-repos-list a:hover {
+        color: #005580; }
+    .github-widget ul.github-widget-repos-list > li {
+      display: block;
+      border: 1px solid #dddddd;
+      border-top: none;
+      z-index: 10; }
+      .github-widget ul.github-widget-repos-list > li h3 {
+        margin: 0px 0px 0px 0px;
+        padding: 8px 8px 8px 8px;
+        z-index: 0;
+        padding-left: 25px;
+        background-image: url(../images/icon-public.png);
+        background-position: 5px 50%;
+        background-repeat: no-repeat; }
+        .github-widget ul.github-widget-repos-list > li h3.fork-flag {
+          background-image: url(../images/icon-fork.png); }
+        .github-widget ul.github-widget-repos-list > li h3 > a:hover {
+          text-decoration: underline; }
+      .github-widget ul.github-widget-repos-list > li ul.repo-stats {
+        display: block;
+        font-size: smaller;
+        float: right;
+        z-index: 5;
+        margin: 0px 0px 0px 0px;
+        padding: 8px 8px 8px 8px; }
+        .github-widget ul.github-widget-repos-list > li ul.repo-stats > li {
+          display: inline-block;
+          color: #999999;
+          font-weight: bold; }
+          .github-widget ul.github-widget-repos-list > li ul.repo-stats > li.language {
+            text-align: right;
+            padding-right: 5px; }
+          .github-widget ul.github-widget-repos-list > li ul.repo-stats > li > a {
+            padding-right: 5px;
+            padding-left: 20px;
+            background-repeat: no-repeat;
+            background-position: 2px; }
+            .github-widget ul.github-widget-repos-list > li ul.repo-stats > li > a.watchers {
+              background-image: url(../images/watchers.png); }
+            .github-widget ul.github-widget-repos-list > li ul.repo-stats > li > a.forks {
+              background-image: url(../images/forks.png); }
+        .github-widget ul.github-widget-repos-list > li ul.repo-stats > li {
+          *display: inline; }
+      .github-widget ul.github-widget-repos-list > li .body {
+        padding: 10px 10px 10px 10px;
+        border-top: 1px solid #eeeeee;
+        background: #fafafa;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#efefef));
+        background: -moz-linear-gradient(top, #fafafa, #efefef); }
+        .github-widget ul.github-widget-repos-list > li .body .updated-at {
+          font-size: smaller;
+          color: #999999; }
