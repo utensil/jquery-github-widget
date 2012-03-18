@@ -12,35 +12,36 @@
   
   var github_widget = {
     
-    createCaption: function(data) {
+    createCaption: function(widget, data) {
+      
+      var view = widget;
       
       var user_info = data;
       
       var user_url = 'https://www.github.com/' + user_info.login;
       var user_repos_url = user_url + '/repositories';
       var user_follower_url = user_url +  '/followers';
-      
-      var view = $('div.github-widget');
             
-      var view_caption = $('<div class="github-widget-caption"/>');
+      //var view_caption = $('<div class="github-widget-caption"/>');
       
-      var view_stat = $('<div class="github-widget-stat"/>');
+      var view_stat = $('<ul class="github-widget-stat"/>');
       
-      var view_user = $('<span class="github-widget-avatar" />');
+      var view_user = $('<li class="github-widget-avatar" />');
       var view_user_link = $('<a />').attr('href', user_url);     
       var view_avatar = $('<img />')
                           .attr('title', user_info.login)
-                          .attr('alt', user_info.login)
                           .attr('src', user_info.avatar_url);
       view_user_link.append(view_avatar);
+                          
+      var view_username = $('<li class="github-widget-username" />').text(user_info.login);                    
       
-      var view_repos = $('<span class="github-widget-repos-count" />');
+      var view_repos = $('<li class="github-widget-repos-count" />');
       var view_repos_link = $('<a />').attr('href', user_repos_url);
       var view_repos_count = $('<strong />').text(user_info.public_repos);
       var view_repos_text = $('<span> public repos</span>');  
       
       
-      var view_follow = $('<span class="github-widget-followers-count" />');
+      var view_follow = $('<li class="github-widget-followers-count" />');
       var view_follow_link = $('<a />').attr('href', user_follower_url);
       var view_follow_count = $('<strong />').text(user_info.followers);
       var view_follow_text = $('<span> followers</span>');        
@@ -48,24 +49,22 @@
       view_repos_link.append(view_repos_count).append(view_repos_text);
       view_follow_link.append(view_follow_count).append(view_follow_text);  
         
-      view
-        .append(view_caption
-          .append(view_stat
+      view.append(view_stat
             .append(view_user.append(view_user_link))
+            .append(view_username)
             .append(view_repos.append(view_repos_link))
             .append(view_follow.append(view_follow_link))
-          )
-        );
+          );
     },
     
-    createReposList : function(data){
+    createReposList : function(widget, data){
       
       var repos_info = data;
       
       //latest first
       repos_info = repos_info.reverse();
       
-      var view = $('div.github-widget');
+      var view = widget;
       
       var view_repos_list = $('<ul class="github-widget-repos-list"/>');
       for(var i in repos_info)
@@ -116,41 +115,39 @@
   $.fn.github_widget = function(options) {
        
     var defaults = {
-        // @deprecate user: 'utensil', // any github username
+      //user: jquery,      (required)  your github username
       //count: 3,          // TODO (optional) number of repos per widget page, 3 by default
       //showForks: true,  // TODO (optional) show forked repos, true by default
-      width: '450px',    // (optional) width of widget, 450px by default
-      align: 'center'  // (optional) alignment relative to its parent, 'cernter|left|right'
-      // @deprecate compact: false,      // (optional) compact mode or full mode? false by default
-      // @deprecate noFrame: false,      // (optional) no fancy widget frame, just repositories
-      // @deprecate cache: true        // (optional) turn local caching on or off, on by default
-  };
+            
+      /*
+       * TODO More Options
+       * 
+       * - items to show (preferablly through CSS display: hidden ?)
+       * - scroll or paginate
+       * - the order of repositories
+       */
+    };
   
   var options = $.extend(defaults, options);
   
   //TODO validate options
-  
-  var view = $('<div></div>').addClass('github-widget');
-  view.css({
-    'width' : options['width'],
-    'margin-left' : (options['align'] == 'left' ? '5px' : 'auto'),
-    'margin-right' : (options['align'] == 'right' ? '5px' : 'auto')
-  });
-  this.append(view);
+  var this_handle = this;
+  var widget = $('<div></div>').addClass('github-widget');
+  this_handle.append(widget);
   
   $.ajax('https://api.github.com/users/' + options['user'], {
     type : 'get',
     dataType : 'jsonp',
     crossDomain: true,
     success: function( data ) {      
-      github_widget.createCaption(data.data);
+      github_widget.createCaption(widget, data.data);
       
       $.ajax('https://api.github.com/users/' + options['user'] + '/repos', {
         type : 'get',
         dataType : 'jsonp',
         crossDomain: true,
         success: function( data ) {            
-           github_widget.createReposList(data.data);
+           github_widget.createReposList(widget, data.data);
       }});
     }});
   

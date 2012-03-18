@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <title>jQuery Github Widgets Demo</title>
+  <link href="http://fonts.googleapis.com/css?family=Amaranth:400,700" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'> 
+  <link href="stylesheets/demo.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="../src/stylesheets/jquery-github-widget-default-theme.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link title="Sunburst" href="stylesheets/solarized_dark.css" media="screen" rel="stylesheet" type="text/css" > 
+  <style>
+  </style>
+  </head>  
+  <body class="index">
+
+    <div id="main" role="main">
+      
+<h1 class="title">Github Wid<span class="fork-me-before">get</span><a target="_blank" href="https://github.com/utensil/jquery-github-widget"><img class="fork-me-overlay" src='images/fork.png'/></a></h1>
+<h2 class="subtitle">
+  <p>as a jQuery plugin</p>
+</h2>
+<div id="content">
+  <div id="demo">
+    <h3 class="sectiontitle">Demo</h3>
+    <div id="github-widget-holder"></div>
+  </div>
+  <div id="intro">
+    <h3 class="sectiontitle">Features</h3>
+    <p>Just see it with your own eyes :D</p>
+    <p>Request more features at <a href="https://github.com/utensil/jquery-github-widget/issues">Issues</a> or fork to add them yourself!</p>
+    <h3 class="sectiontitle">Compatibility</h3>
+    <p>Aimed at and tested under the following browsers:</p>
+    <ul>
+    <li>Chrome 9+</li>
+    <li>Firefox 3.6+</li>
+    <li>IE 7+</li>
+    <li>Safari 5.0+</li>
+    <li>Opera</li>
+    </ul>
+    <h3 class="sectiontitle">Licence</h3>
+    <p>MIT Licence, see <a href="https://github.com/utensil/jquery-github-widget/blob/master/LICENCE">LICENCE</a></p>
+    <p>Copyright (c) 2011-2012 Utensil Song</p>
+  </div>
+  <div id="usage">
+  <h3 class="sectiontitle">Usage</h3>
+  <p>Make sure you're using the HTML5 doctype at the top of your html:</p>
+  <pre><code>
+&lt;!DOCTYPE html&gt;
+  </code></pre> 
+  <p>From within the &lt;head&gt;:</p>
+  <pre><code>
+&lt;!-- Make sure you've included jQuery before jquery-github-widget.js. --&gt;
+&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Load jquery-github-widget default theme, or customize one of your own. Go ahead, it's well commented :D. --&gt;
+&lt;link href=&quot;stylesheets/jquery-github-widget-default-theme.css&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+
+&lt;!-- Load jquery-github-widget.js. --&gt;
+&lt;script src=&quot;javascripts/jquery-github-widget.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  </code></pre>
+  <p>Where you wish to show the widget:</p>
+  <pre><code>
+&lt;div id=&quot;github-widget-holder&quot;&gt;&lt;/div&gt;
+  </code></pre>
+  <p>Initialize the widget like other jQuery plugins:</p>
+  <pre><code>
+  $('#github-widget-holder').github_widget({
+    user : 'jquery',        // (required)  your github username
+  });
+  </code></pre>
+  </div>
+</div>
+
+<script src="../src/javascripts/jquery-github-widget.js" type="text/javascript"></script><script>
+  $('#github-widget-holder').github_widget({
+    user : 'jquery'
+  });
+</script>
+<script src="javascripts/highlight.pack.js"></script>
+<script>
+  hljs.tabReplace = '    ';
+  hljs.initHighlightingOnLoad();
+</script>
+</div>
+</body>
+</html>
